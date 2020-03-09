@@ -1,0 +1,28 @@
+extends ../layouts/common
+
+block content
+    h1 users list
+
+    a.btn.btn-primary.mb-2(href="/users/create") add
+
+    form.form-inline(action="/users/search", method="GET")
+        div.form-group
+            input#input-field.form-control(type="text" name="q")
+        button.btn.btn-primary.ml-2 search
+   
+    table.table.table-bordred.table-striped
+        thead
+            th stt
+            th name
+            th phone
+            th address
+            th actions
+        tbody
+            each user in users
+                tr
+                    td= 1
+                    td= user.name
+                    td= user.phone
+                    td= user.address
+                    td
+                        a(href="/users/" + user.id) view
